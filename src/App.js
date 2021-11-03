@@ -10,11 +10,11 @@ function App() {
 	return (
 		<Layout>
 			<header>
-				<h2>Random quote machine</h2>
+				<h1>Random quote machine</h1>
 			</header>
 			<QuoteContainer quote={quoteData[0].quote} author={quoteData[0].author} />
-			<Button text="new quote" />
-			<SocialButton />
+			<Button text="New quote" />
+			<SocialButton text="Share" />
 		</Layout>
 	);
 }
