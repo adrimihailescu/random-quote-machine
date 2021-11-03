@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Layout from "./components/Layout/Layout";
+import QuoteContainer from "./components/QuoteContainer/QuoteContainer";
+import Button from "./components/Button/Button";
+import SocialButton from "./components/SocialButton/SocialButton";
+import quoteData from "./QuotesData";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	console.log(quoteData);
+	return (
+		<Layout>
+			<header>
+				<h2>Random quote machine</h2>
+			</header>
+			<QuoteContainer quote={quoteData[0].quote} author={quoteData[0].author} />
+			<Button text="new quote" />
+			<SocialButton />
+		</Layout>
+	);
 }
 
 export default App;
