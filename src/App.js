@@ -13,11 +13,26 @@ const randomNumber = (min, max) => {
 };
 
 function App() {
+	const queryParams = new URLSearchParams(window.location.search);
+	const currentID = queryParams.get("id");
+
 	const [activeQuote, setActiveQuote] = useState();
-	const buttonHandler = () => setActiveQuote(quoteData[randomNumber(0, 21)]);
+
+	const buttonHandler = () => {
+		const random = randomNumber(0, 21);
+
+		setActiveQuote(quoteData[random]);
+
+		var newurl = `${window.location.protocol}//${window.location.host}${window.location.pathname}?id=${random}`;
+		window.history.pushState({ path: newurl }, "", newurl);
+	};
 
 	useEffect(() => {
-		buttonHandler();
+		if (currentID) {
+			setActiveQuote(quoteData[currentID]);
+		} else {
+			buttonHandler();
+		}
 	}, []);
 
 	return (
