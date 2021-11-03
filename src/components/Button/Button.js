@@ -1,9 +1,8 @@
-import React from "react";
 import "./Button.css";
 
-const Button = ({ text }) => {
+const Button = ({ text, buttonHandler }) => {
 	return (
-		<button id="new-quote" className="quote-button">
+		<button id="new-quote" className="quote-button" onClick={buttonHandler}>
 			{text}
 		</button>
 	);

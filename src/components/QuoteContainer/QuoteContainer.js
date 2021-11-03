@@ -1,4 +1,3 @@
-import React from "react";
 import "./QuoteContainer.css";
 
 const QuoteContainer = ({ quote, author }) => {
