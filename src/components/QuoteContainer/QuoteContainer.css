@@ -1,18 +1,23 @@
 .container {
+	display: flex;
+	flex-direction: column;
 	background-color: #f9c5d1;
 	background-image: linear-gradient(315deg, #f9c5d1 0%, #9795ef 74%);
 	z-index: 1;
 	opacity: 0.9;
-	padding: 10px;
-	max-width: 500px;
+	padding: 20px 10px;
+	width: 500px;
 	margin: 10px;
 	border-radius: 43% 57% 72% 100% / 0% 34% 0% 33%;
-	height: 200px;
-	display: flex;
+	min-height: 300px;
 	justify-content: center;
 	text-align: center;
 	align-items: center;
 	color: white;
+}
+.quote-box {
+	margin: auto 0;
+	width: 100%;
 }
 
 .quote-text {
@@ -21,7 +26,7 @@
 	margin: 10px;
 	padding: 10px;
 	font-weight: 500;
-	width: 400px;
+	/* width: 400px; */
 	height: auto;
 	text-align: center;
 	font-style: italic;
@@ -30,4 +35,10 @@
 
 .quote-author {
 	text-align: right;
+	padding-right: 20px;
+}
+
+.toolbar {
+	margin-bottom: 0;
+	width: 100%;
 }

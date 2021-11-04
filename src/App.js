@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Layout from "./components/Layout/Layout";
 import QuoteContainer from "./components/QuoteContainer/QuoteContainer";
-import Button from "./components/Button/Button";
 import SocialButton from "./components/SocialButton/SocialButton";
 import quoteData from "./QuotesData";
+import { gsap } from "gsap";
 
 const randomNumber = (min, max) => {
 	min = Math.ceil(min);
@@ -41,9 +41,12 @@ function App() {
 				<h1>Random quote machine</h1>
 			</header>
 			{activeQuote && (
-				<QuoteContainer quote={activeQuote.quote} author={activeQuote.author} />
+				<QuoteContainer
+					quote={activeQuote.quote}
+					author={activeQuote.author}
+					buttonHandler={buttonHandler}
+				/>
 			)}
-			<Button text="New quote" buttonHandler={buttonHandler} />
 			<SocialButton text="Share" />
 		</Layout>
 	);
