@@ -33,7 +33,7 @@ function App() {
 		} else {
 			buttonHandler();
 		}
-	}, []);
+	}, [currentID]);
 
 	return (
 		<Layout>

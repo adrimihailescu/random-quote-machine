@@ -3,12 +3,12 @@ import "./SocialButton.css";
 const SocialButton = () => {
 	return (
 		<a
-			id="share-quote"
+			id="tweet-quote"
 			className="share-button"
-			href="https://github.com/adrimihailescu"
+			href="twitter.com/intent/tweet"
 			target="_blank"
 			rel="noreferrer"
-		>{`Share`}</a>
+		>{`Tweet`}</a>
 	);
 };
 
