@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { split } from "../../helpers";
 
 const QuoteContainer = (props) => {
-	const { quote, author, buttonHandler } = props;
+	const { quote, author, buttonHandler, url } = props;
 	const quoteTextRef = useRef(null);
 	const authorTextRef = useRef(null);
 
@@ -56,8 +56,8 @@ const QuoteContainer = (props) => {
 	}, [animateText]);
 
 	return (
-		<div className="container">
-			<div id="quote-box" className="quote-box">
+		<div id="quote-box" className="container">
+			<div className="quote-box">
 				<div id="text" className="quote-text">
 					<p ref={quoteTextRef}>{quote}</p>
 				</div>
@@ -67,7 +67,7 @@ const QuoteContainer = (props) => {
 			</div>
 			<div className="toolbar">
 				<Button text="New quote" buttonHandler={buttonHandler} />
-				<SocialButton text="Share" />
+				<SocialButton text="Share" url={url} />
 			</div>
 		</div>
 	);
