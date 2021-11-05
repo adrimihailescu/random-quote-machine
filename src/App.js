@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Layout from "./components/Layout/Layout";
 import QuoteContainer from "./components/QuoteContainer/QuoteContainer";
-import SocialButton from "./components/SocialButton/SocialButton";
+import bgColors from "./BackgroundColors";
+
 import quoteData from "./QuotesData";
-import { gsap } from "gsap";
 
 const randomNumber = (min, max) => {
 	min = Math.ceil(min);
@@ -17,13 +17,16 @@ function App() {
 	const currentID = queryParams.get("id");
 
 	const [activeQuote, setActiveQuote] = useState();
+	const [activeBG, setActiveBG] = useState(bgColors[0]);
 
 	const buttonHandler = () => {
-		const random = randomNumber(0, 21);
+		const randomQ = randomNumber(0, 21);
+		const randomBG = randomNumber(0, 9);
 
-		setActiveQuote(quoteData[random]);
+		setActiveQuote(quoteData[randomQ]);
+		setActiveBG(bgColors[randomBG]);
 
-		var newurl = `${window.location.protocol}//${window.location.host}${window.location.pathname}?id=${random}`;
+		var newurl = `${window.location.protocol}//${window.location.host}${window.location.pathname}?id=${randomQ}`;
 		window.history.pushState({ path: newurl }, "", newurl);
 	};
 
@@ -36,7 +39,7 @@ function App() {
 	}, [currentID]);
 
 	return (
-		<Layout>
+		<Layout style={{ ...activeBG }}>
 			<header>
 				<h1>Random quote machine</h1>
 			</header>
@@ -45,9 +48,19 @@ function App() {
 					quote={activeQuote.quote}
 					author={activeQuote.author}
 					buttonHandler={buttonHandler}
+					url={window.location}
 				/>
 			)}
-			<SocialButton text="Share" />
+			<footer className="footer">
+				by{" "}
+				<a
+					href="https://codepen.io/adrimihailescu"
+					target="_blank"
+					rel="noreferrer"
+				>
+					Adriana
+				</a>
+			</footer>
 		</Layout>
 	);
 }
